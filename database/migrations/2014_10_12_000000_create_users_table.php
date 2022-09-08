@@ -15,15 +15,18 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+
+            $table->char('status',4);
+
             $table->string('name');
 
             $table->string('primary_contact_person');
             $table->string('primary_contact_no');
             $table->string('primary_contact_person_position');
 
-            $table->string('secondary_contact_person');
-            $table->string('secondary_contact_no');
-            $table->string('secondary_contact_person_position');
+            $table->string('secondary_contact_person')->nullable();
+            $table->string('secondary_contact_no')->nullable();
+            $table->string('secondary_contact_person_position')->nullable();
             
             $table->bigInteger('brand_id');
             $table->text('branch');
