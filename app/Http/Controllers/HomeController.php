@@ -24,7 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {   
-        print_r(Auth::user());
         return view('home');
+    }
+
+    public function scan(){
+        return view('scan');
     }
 }
