@@ -16,6 +16,7 @@
         );
 
         console.log(qrScanner);
+        qrScanner.start();
     </script>
 </div>
 @endsection
