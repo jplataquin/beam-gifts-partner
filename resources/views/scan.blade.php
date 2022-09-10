@@ -14,6 +14,8 @@
             result => console.log('decoded qr code:', result),
             { /* your options or returnDetailedScanResult: true if you're not specifying any other options */ },
         );
+
+        console.log(qrScanner);
     </script>
 </div>
 @endsection
