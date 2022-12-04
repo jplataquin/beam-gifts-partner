@@ -33,6 +33,7 @@ Route::get('/qr-scanner.min.js', function(){
 
 
 
+
 Route::get('/qr-scanner-worker.min.js', function(){
 
     $response = Response::make(File::get(base_path('node_modules/qr-scanner/qr-scanner-worker.min.js')), 200);
