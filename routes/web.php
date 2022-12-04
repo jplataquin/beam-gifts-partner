@@ -22,6 +22,7 @@ Route::middleware(['auth'])->group(function () {
 
 });
 
+
 Route::get('/qr-scanner.min.js', function(){
 
     $response = Response::make(File::get(base_path('node_modules/qr-scanner/qr-scanner.min.js')), 200);
