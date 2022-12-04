@@ -11,12 +11,12 @@
 
         const qrScanner = new QrScanner(
             vidEl,
-            result => console.log('decoded qr code:', result),
+            result => alert('decoded qr code:', result),
             { /* your options or returnDetailedScanResult: true if you're not specifying any other options */ },
         );
 
         console.log(qrScanner);
-        qrScanner.start();
+        qrScanner.start(); 
     </script>
 </div>
 @endsection

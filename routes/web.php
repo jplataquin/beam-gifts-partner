@@ -13,15 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/scan', [App\Http\Controllers\HomeController::class, 'scan'])->name('scan');
+Route::middleware(['auth'])->group(function () {
 
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/scan', [App\Http\Controllers\HomeController::class, 'scan'])->name('scan');
+
+});
 
 Route::get('/qr-scanner.min.js', function(){
 
