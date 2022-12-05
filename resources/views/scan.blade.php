@@ -19,7 +19,25 @@
             const qrScanner = new QrScanner(
                 vidEl,
                 (result) => {
-                    alert(result.data);
+
+                    let data;
+
+                    try{
+                        data = JSON.parse(result.data);
+                    }catch(err){
+
+                        alert('ERROR: QR code not recognized');
+                        return false;
+                    }
+
+                    if(typeof data.item_uid == 'undefined'){
+
+                        alert('ERROR: Invalid QR code data');
+                        return false;
+                    }
+
+                    alert(data.item_uid);
+                 
                 },
                 { /* your options or returnDetailedScanResult: true if you're not specifying any other options */ 
                     highlightScanRegion: true
