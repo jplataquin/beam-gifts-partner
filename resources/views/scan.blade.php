@@ -30,10 +30,10 @@
 
             try{
                 qrScanner.start(); 
-            }catch(err=>{
+            }catch(err){
                 console.log(err);
                 alert('ERROR: '+err.message);
-            })
+            };
             
 
         })();
