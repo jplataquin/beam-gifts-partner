@@ -10,10 +10,10 @@
                 <div class="card-body">
                     
                     <div class="row">
-                        <div class="col-md-6 text-center">
+                        <div class="col-md-6 text-center m-5">
                             <button id="logsBtn" class="btn btn-warning">Logs</button>
                         </div>
-                        <div class="col-md-6 text-center">
+                        <div class="col-md-6 text-center m-5">
                             <button id="scanBtn" class="btn btn-primary">Scan</button>
                         </div>
                     </div>
@@ -30,6 +30,6 @@
     $q('#scanBtn').first().onclick = (e)=>{
         document.location.href = '/scan';
     }
-    
+
 </script>
 @endsection
