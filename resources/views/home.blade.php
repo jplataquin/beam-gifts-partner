@@ -27,7 +27,9 @@
 <script type="module">
     import {$q} from '/adarna.js';
 
+    console.log($q('#scanBtn').first());
     $q('#scanBtn').first().onclick = (e)=>{
+        alert('adsad');
         document.location.href = '/scan';
     }
 
