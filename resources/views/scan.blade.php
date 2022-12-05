@@ -7,16 +7,37 @@
     <script type="module">
         import QrScanner from '/qr-scanner.min.js';
 
-        const vidEl = document.querySelector('#vidEl');
+        (async () => {
 
-        const qrScanner = new QrScanner(
-            vidEl,
-            result => alert('decoded qr code:', result),
-            { /* your options or returnDetailedScanResult: true if you're not specifying any other options */ },
-        );
+            const vidEl = document.querySelector('#vidEl');
 
-        console.log(qrScanner);
-        qrScanner.start(); 
+            const qrScanner = new QrScanner(
+                vidEl,
+                (result) => {
+                    alert('decoded qr code:', result)
+                },
+                { /* your options or returnDetailedScanResult: true if you're not specifying any other options */ 
+                    highlightScanRegion: true
+                },
+            );
+
+            let check = await QrScanner.hasCamera();
+
+            if(!check){
+                alert('Unable to open camera');
+                return false;
+            }
+
+            try{
+                qrScanner.start(); 
+            }catch(err=>{
+                console.log(err);
+                alert('ERROR: '+err.message);
+            })
+            
+
+        })();
+        
     </script>
 </div>
 @endsection
