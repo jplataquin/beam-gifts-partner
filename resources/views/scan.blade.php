@@ -19,9 +19,7 @@
             const qrScanner = new QrScanner(
                 vidEl,
                 (result) => {
-                    for(let key in result){
-                        alert(key);
-                    }
+                    alert(result.data);
                 },
                 { /* your options or returnDetailedScanResult: true if you're not specifying any other options */ 
                     highlightScanRegion: true
