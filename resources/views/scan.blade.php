@@ -5,7 +5,7 @@
     <h1>Scan</h1>
     <div class="row">
         <div class="col-12 text-center">
-            <video id="vidEl"></video>
+            <video width="500px" id="vidEl"></video>
         </div>
     </div>
    
