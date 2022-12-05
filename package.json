@@ -15,6 +15,7 @@
         "vite": "^3.0.0"
     },
     "dependencies": {
+        "adarna": "^1.0.27",
         "qr-scanner": "^1.4.1"
     }
 }

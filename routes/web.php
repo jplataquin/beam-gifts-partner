@@ -40,3 +40,12 @@ Route::get('/qr-scanner-worker.min.js', function(){
 
     return $response;
 });
+
+
+Route::get('adarna.js', function(){
+
+    $response = Response::make(File::get(base_path('node_modules/adarna/dist/adarna.js')), 200);
+    $response->header("Content-Type", 'text/javascript');
+
+    return $response;
+});
