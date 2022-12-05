@@ -8,16 +8,28 @@
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+                    
+                    <div class="row">
+                        <div class="col-md-6 text-center">
+                            <button id="logsBtn" class="btn btn-warning">Logs</button>
                         </div>
-                    @endif
+                        <div class="col-md-6 text-center">
+                            <button id="scanBtn" class="btn btn-primary">Scan</button>
+                        </div>
+                    </div>
 
-                    {{ __('You are logged in!') }}
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script type="module">
+    import {$q} from '/adarna.js';
+
+    $q('#scanBtn').first().onclick = (e)=>{
+        document.location.href = '/scan';
+    }
+    
+</script>
 @endsection
