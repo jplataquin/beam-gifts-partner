@@ -3,7 +3,12 @@
 @section('content')
 <div class="container">
     <h1>Scan</h1>
-    <video id="vidEl"></video>
+    <div class="row">
+        <div class="col-12 text-center">
+            <video id="vidEl"></video>
+        </div>
+    </div>
+   
     <script type="module">
         import QrScanner from '/qr-scanner.min.js';
 
