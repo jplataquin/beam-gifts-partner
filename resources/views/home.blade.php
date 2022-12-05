@@ -10,10 +10,10 @@
                 <div class="card-body">
                     
                     <div class="row">
-                        <div class="col-md-6 text-center m-5">
+                        <div class="col-md-6 text-center m-2">
                             <button id="logsBtn" class="btn btn-warning">Logs</button>
                         </div>
-                        <div class="col-md-6 text-center m-5">
+                        <div class="col-md-6 text-center m-2">
                             <button id="scanBtn" class="btn btn-primary">Scan</button>
                         </div>
                     </div>
