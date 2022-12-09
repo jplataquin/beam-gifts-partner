@@ -8,8 +8,8 @@ use Order;
 
 class OrderItem extends Model
 {
-    protected $connection = 'mysql_beam_client';
-    protected $table = 'order_items';
+    protected $connection   = 'mysql_beam_client';
+    protected $table        = 'order_items';
     use HasFactory;
 
     public function order()

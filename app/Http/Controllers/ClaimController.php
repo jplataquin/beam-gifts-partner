@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\OrderItem;
 
 class ClaimController extends Controller
 {
@@ -18,6 +19,8 @@ class ClaimController extends Controller
 
     public function index($uid){
 
+        $orderItem = OrderItem::findOrFail($uid);
+        
         return view('claim',[
             'uid' => $uid
         ]);
