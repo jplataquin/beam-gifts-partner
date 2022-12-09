@@ -36,7 +36,7 @@
                         return false;
                     }
 
-                    alert(data.item_uid);
+                    document.location.href = '/claim/'+data.item_uid;
                  
                 },
                 { /* your options or returnDetailedScanResult: true if you're not specifying any other options */ 
