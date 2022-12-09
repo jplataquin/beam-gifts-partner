@@ -19,7 +19,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/scan', [App\Http\Controllers\HomeController::class, 'scan'])->name('scan');
-    Route::get('/scan/{uid}', [App\Http\Controllers\HomeController::class, 'scan'])->name('scan');
+    Route::get('/claim/{uid}', [App\Http\Controllers\ClaimController::class, 'index']);
+   
 });
 
 
