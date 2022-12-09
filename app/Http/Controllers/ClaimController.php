@@ -19,7 +19,14 @@ class ClaimController extends Controller
 
     public function index($uid){
 
-        $orderItem = OrderItem::findOrFail($uid);
+        $orderItem = new OrderItem;
+
+        $result = $orderItem->where('item_uid','=',$uid)->first();
+
+        if(!$result){
+            return abort(404);
+        }
+
         
         return view('claim',[
             'uid' => $uid
