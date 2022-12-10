@@ -29,8 +29,9 @@ class ClaimController extends Controller
             ]);
         }
 
-        echo $result->status;exit;
-        if($result->status != 'PAID'){
+        $order = $result->order();
+
+        if($order->status != 'PAID'){
             return view('no_item',[
                 'uid' => $uid
             ]);
