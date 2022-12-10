@@ -28,10 +28,9 @@ class ClaimController extends Controller
                 'uid' => $uid
             ]);
         }
+;
 
-        $order = $result->order();
-
-        if($order->status != 'PAID'){
+        if($result->order->status != 'PAID'){
             return view('no_item',[
                 'uid' => $uid
             ]);
