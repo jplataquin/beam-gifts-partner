@@ -24,12 +24,23 @@ class ClaimController extends Controller
         $result = $orderItem->where('item_uid','=',$uid)->first();
 
         if(!$result){
-            return abort(404);
+            return view('no_item',[
+                'uid' => $uid
+            ]);
         }
 
-        
+        if($result->status != 'PAID'){
+            return view('no_item',[
+                'uid' => $uid
+            ]);
+        }
+
+        $result->photo = json_decode($result->photo,true);
+
+        print_r($result->photo);
         return view('claim',[
-            'uid' => $uid
+            'uid'   => $uid,
+            'data'  => $result
         ]);
     }
 }
