@@ -36,7 +36,7 @@ class ClaimController extends Controller
             ]);
         }
 
-        $result->photo = json_decode($result->photo,true);
+        $result->item->photo = json_decode($result->item->photo,true);
 
         print_r($result);
         exit;
