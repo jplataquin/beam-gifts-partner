@@ -11,7 +11,7 @@
             <img width="400px" src="{{config('app')['api_base_url']}}storage/photos/item/400px/{{$data->item->photo['400px']}}"/>
         </div>
         <div class="col-12 text-center">
-            <h3>{{$data->name}}</h3>
+            <h3>{{$data->item->name}}</h3>
         </div>
     </div>
 
