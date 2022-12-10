@@ -10,7 +10,7 @@
         <div class="col-12 text-center">
             <img width="400px" src="{{config('app')['api_base_url']}}storage/photos/item/400px/{{$data->item->photo['400px']}}"/>
         </div>
-        <div class="col-12 text-center">
+        <div class="col-12 text-center mt-3">
             <h3>{{$data->item->name}}</h3>
         </div>
     </div>
