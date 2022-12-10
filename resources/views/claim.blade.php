@@ -15,13 +15,15 @@
     <div class="row mt-3">
         <div class="col-12 text-center">
             <h2>{{$data->item_name}}</h2>
-            <h3>By</h3>
-            <h3>{{$data->brand_name}}</h3>
+            <h4>By</h4>
+            <h4>{{$data->brand_name}}</h4>
         </div>
     </div>
 
     <div class="row">
-        <h3>PHP: {{ number_format($data->price,2) }}
+        <div class="col-12 text-center">
+            <h3>PHP: {{ number_format($data->price,2) }}
+        </div>
     </div>
 
 
