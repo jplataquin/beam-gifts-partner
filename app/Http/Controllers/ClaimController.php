@@ -38,8 +38,8 @@ class ClaimController extends Controller
 
         $result->photo = json_decode($result->photo,true);
 
-        print_r($result->photo);
-
+        print_r($result);
+        exit;
         return view('claim',[
             'uid'   => $uid,
             'data'  => $result
