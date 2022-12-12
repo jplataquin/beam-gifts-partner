@@ -6,7 +6,7 @@
 
     <h1>{{$uid}}</h1>
     
-    <div class="row">
+    <div class="row text-center">
         <div class="col-md-9 text-center">
             <div class="card" width="100%">
                 <div class="card-header">
