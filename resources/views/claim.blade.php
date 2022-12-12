@@ -19,6 +19,15 @@
                     <p>By {{$data->brand_name}}</p>
                     <h3>PHP: {{ number_format($data->price,2) }}
                     <h3>🎁: {{$data->consumed}} / {{$data->quantity}}
+
+                    <div class="row mt-5">
+                        <div class="col-6">
+                            <button class="btn btn-warning" id="cancelBtn" >Cancel</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-primary" id="claimBtn" >Claim</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -28,4 +37,34 @@
 
 </div>
 
+<script type="module">
+    import {$q} from '/adarna.js';
+
+    (async ()=>{
+
+        const claimBtn = $q('#claimBtn').first();
+
+        claimBtn.onclick = (e)=>{
+
+            let answer = prompt('Type "Yes" if you are sure to release one quantity of these item');
+
+            if(answer.trim() == ''){
+                return false;
+            }
+
+            if(answer.toUpperCase() != 'YES'){
+                alert('Incorrect input, please try again');
+                return false;
+            }
+
+            if(!confirm('By proceeding with this transaction you understand that once successful it is conisderd unreversable?')){
+
+                return false;
+            }
+
+            
+        }
+
+    })();
+</script>
 @endsection
