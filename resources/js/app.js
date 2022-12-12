@@ -2,7 +2,7 @@ import './bootstrap';
 
 import { Confirm } from 'notiflix/build/notiflix-confirm-aio';
 
-console.log(Confirm);
+console.log(Confirm,'adsasdsads');
 
 window.util = {};
 
