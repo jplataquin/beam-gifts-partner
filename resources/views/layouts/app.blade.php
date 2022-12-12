@@ -15,7 +15,6 @@
 
     <!-- Attention JS utility -->
     <link href="/attention/dist/attention.css" rel="stylesheet">
-    <script src="/attention/dist/attention.js"></script>
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])

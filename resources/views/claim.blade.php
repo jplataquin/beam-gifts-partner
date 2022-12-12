@@ -39,9 +39,11 @@
 
 <script type="module">
     import {$q} from '/adarna.js';
+    import Prompt from '/attention/src/prompt.js';
 
     (async ()=>{
 
+        console.log(Prompt);
         const claimBtn = $q('#claimBtn').first();
 
         claimBtn.onclick = (e)=>{
