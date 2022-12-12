@@ -22,10 +22,10 @@
 
                     <div class="row mt-5">
                         <div class="col-6">
-                            <button class="btn btn-warning" id="cancelBtn" >Cancel</button>
+                            <button class="btn btn-warning w-100" id="cancelBtn" >Cancel</button>
                         </div>
                         <div class="col-6">
-                            <button class="btn btn-primary" id="claimBtn" >Claim</button>
+                            <button class="btn btn-primary w-100" id="claimBtn" >Claim</button>
                         </div>
                     </div>
                 </div>
@@ -57,12 +57,14 @@
                 return false;
             }
 
-            if(!confirm('By proceeding with this transaction you understand that once successful it is conisderd unreversable?')){
+            if(!confirm('By proceeding with this transaction you understand that once successful it is conisderd irreversible?')){
 
                 return false;
             }
 
-            
+            window.util.$post('/claim',{
+                uid: "{{$uid}}"
+            })
         }
 
     })();
