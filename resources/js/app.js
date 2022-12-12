@@ -1,5 +1,9 @@
 import './bootstrap';
 
+import { Confirm } from 'notiflix/build/notiflix-confirm-aio';
+
+console.log(Confirm);
+
 window.util = {};
 
 window.util.$get = async (url,data) => {

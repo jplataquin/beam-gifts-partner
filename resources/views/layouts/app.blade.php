@@ -13,7 +13,8 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-
+    <link rel="stylesheet" href="dist/notiflix-X.X.X.min.css" />
+    <script src="dist/notiflix-X.X.X.min.js"></script>
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>

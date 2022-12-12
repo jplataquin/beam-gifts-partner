@@ -16,6 +16,7 @@
     },
     "dependencies": {
         "adarna": "^1.0.27",
+        "notiflix": "^3.2.5",
         "qr-scanner": "^1.4.1"
     }
 }
