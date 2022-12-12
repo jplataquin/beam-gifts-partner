@@ -39,7 +39,7 @@
 
 <script type="module">
     import {$q} from '/adarna.js';
-    import {Prompt} from '/attention/dist/attention.js';
+    import '/attention/dist/attention.js';
 
     (async ()=>{
 
