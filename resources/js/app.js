@@ -1,8 +1,8 @@
 import './bootstrap';
 
-import { Confirm } from 'notiflix/build/notiflix-confirm-aio';
+import { Confirm } from './notiflix/build/notiflix-confirm-aio';
 
-console.log('adsasdsads');
+console.log('adsasdsads',Confirm);
 
 window.util = {};
 
