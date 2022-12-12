@@ -6,8 +6,8 @@
 
     <h1>{{$uid}}</h1>
     
-    <div class="row text-center">
-        <div class="col-md-9 text-center">
+    <div class="row justify-content-center">
+        <div class="col-md-9 ">
             <div class="card" width="100%">
                 <div class="card-header">
                     &nbsp;
