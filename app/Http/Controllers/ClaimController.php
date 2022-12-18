@@ -50,6 +50,14 @@ class ClaimController extends Controller
 
         $uid = $request->input('uid');
 
+        if(!$uid){
+            return response()->json([
+                'status' => 0,
+                'message'=> 'Item not found',
+                'data'=> []
+            ]);
+        }
+
         $orderItem = new OrderItem;
 
         $result = $orderItem->where('item_uid','=',$uid)->first();
