@@ -62,9 +62,15 @@
                 return false;
             }
 
+            //Do spinner loader
+
             window.util.$post('/claim',{
                 uid: "{{$uid}}"
-            })
+            }).then(reply=>{
+
+
+                console.log(reply);
+            });
         }
 
     })();
