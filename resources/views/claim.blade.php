@@ -68,7 +68,8 @@
                 uid: "{{$uid}}"
             }).then(reply=>{
 
-
+                alert('DONE');
+                
                 console.log(reply);
             });
         }

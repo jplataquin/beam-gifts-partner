@@ -17,6 +17,8 @@
     <script src="dist/notiflix-X.X.X.min.js"></script>
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    <script data-consolejs-channel="9ef550b3-0c1e-128b-75fe-f862c1bd23cd" src="https://remotejs.com/agent/agent.js"></script>
 </head>
 <body>
     <div id="app">
