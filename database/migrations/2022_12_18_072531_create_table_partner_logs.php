@@ -20,7 +20,7 @@ return new class extends Migration
             $table->decimal('amount',10,2);
             $table->json('entry');
             $table->bigInteger('partner_id');
-            $table->bigInteger('modified_by');
+            $table->bigInteger('modified_by')->nullable();
             $table->dateTime('released_at')->nullable();
             $table->timestamps();
         });
