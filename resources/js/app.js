@@ -49,24 +49,25 @@ window.util.$get = async (url,data) => {
     });
 }
 
-window.util.$post = async (url,formData) => {
+window.util.$post = async (url,params,headers) => {
 
-    let status = '';
+    headers                 = headers ?? {};
+    headers['X-CSRF-Token'] =  document.querySelector('meta[name="csrf-token"]').content
+    
+    let formData = new FormData();
+
+    for(let key in params){
+        formData.append(key,params[key]);
+    }
 
     return fetch(url,
     {
-        headers: {
-            "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').content,
-            "Accept": "application/json",
-        },
+        headers: headers,
         body: formData  ?? {},
         method: "POST"
     }).then((response) => {
        
-        status = response.status;
-        
-        if(status == 401){
-          
+        if(response.status == 401){
             return {
                     status:-1,
                     message:'Please sign in',
@@ -74,7 +75,7 @@ window.util.$post = async (url,formData) => {
             }
         };
 
-        if(status == 500){
+        if(response.status == 500){
 
             console.error(response);
             return {
@@ -89,10 +90,8 @@ window.util.$post = async (url,formData) => {
 
         return {
             status:0,
-            message:e.message,
-            data:{
-                httpStatus: status
-            }
+            message:e,
+            data:{}
         }
     });
 }
