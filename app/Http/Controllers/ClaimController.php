@@ -47,6 +47,8 @@ class ClaimController extends Controller
 
     public function claim(Request $request){
 
+        $uid = $request->input('uid');
+        
         $orderItem = new OrderItem;
 
         $result = $orderItem->where('item_uid','=',$uid)->first();
