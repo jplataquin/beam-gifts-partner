@@ -69,12 +69,15 @@
                 uid: "{{$uid}}"
             }).then(reply=>{
 
+                
+                console.log(reply.data);
+                
                 if(reply.status <= 0){
                     alert(reply.message);
                     return false;
                 }
 
-                console.log(reply);
+                console.log(reply.data);
             });
         }
 
