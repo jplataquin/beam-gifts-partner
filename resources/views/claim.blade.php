@@ -68,8 +68,11 @@
                 uid: "{{$uid}}"
             }).then(reply=>{
 
-                alert('DONE');
-                
+                if(reply.status <= 0){
+                    alert(reply.message);
+                    return false;
+                }
+
                 console.log(reply);
             });
         }

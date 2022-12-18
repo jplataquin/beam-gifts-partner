@@ -48,7 +48,7 @@ class ClaimController extends Controller
     public function claim(Request $request){
 
         $uid = $request->input('uid');
-        
+
         $orderItem = new OrderItem;
 
         $result = $orderItem->where('item_uid','=',$uid)->first();
@@ -65,7 +65,7 @@ class ClaimController extends Controller
         if($result->order->status != 'PAID'){
             return response()->json([
                 'status' => 0,
-                'message'=> 'This item has invalid status',
+                'message'=> 'This item has invalid status '.$result->order->status,
                 'data'=> []
             ]);
         }
