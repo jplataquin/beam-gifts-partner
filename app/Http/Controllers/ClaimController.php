@@ -20,6 +20,12 @@ class ClaimController extends Controller
 
     public function index($uid){
 
+        if(trim($uid) == ''){
+            return view('no_item',[
+                'uid' => $uid
+            ]);
+        }
+
         $orderItem = new OrderItem;
 
         $result = $orderItem->where('item_uid','=',$uid)->first();
@@ -50,7 +56,7 @@ class ClaimController extends Controller
 
         $uid = $request->input('uid');
 
-        if(!$uid){
+        if($uid == ''){
             return response()->json([
                 'status' => 0,
                 'message'=> 'Item not found',
