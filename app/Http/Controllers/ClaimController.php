@@ -41,7 +41,8 @@ class ClaimController extends Controller
 
         return view('claim',[
             'uid'   => $uid,
-            'data'  => $result
+            'data'  => $result,
+            'status' => $result->order->status
         ]);
     }
 
