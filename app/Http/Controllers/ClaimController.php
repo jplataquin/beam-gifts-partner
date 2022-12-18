@@ -66,7 +66,7 @@ class ClaimController extends Controller
         if($result->order->status != 'PAID'){
             return response()->json([
                 'status' => 0,
-                'message'=> 'This item has invalid status '.$result->order->status,
+                'message'=> 'This item has invalid status '.$result->order->status.' '.$uid,
                 'data'=> []
             ]);
         }
