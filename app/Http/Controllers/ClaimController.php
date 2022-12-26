@@ -152,11 +152,11 @@ class ClaimController extends Controller
             $partnerLog->order_item_id  = $result->id;
             $partnerLog->amount         = $result->price;
             $partnerLog->entry          = $entry;
-            $parnterLog->partner_id     = $partner_id;
+            $partnerLog->partner_id     = $partner_id;
 
             //Save to database
             $result->save();
-            $parnterLog->save();
+            $partnerLog->save();
 
             return response()->json([
                 'status' => 1,
