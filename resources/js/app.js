@@ -185,3 +185,8 @@ window.util.toastCenter = (text,duration)=>{
         },
     }).showToast();
 }
+
+
+window.util.siteURL = (url)=>{
+    return '{{url("/")}}'+url;
+}

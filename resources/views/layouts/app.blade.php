@@ -16,6 +16,8 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
+    <link href="/css/toastify.css" rel="stylesheet">
+
     <script data-consolejs-channel="9ef550b3-0c1e-128b-75fe-f862c1bd23cd" src="https://remotejs.com/agent/agent.js"></script>
 </head>
 <body>
@@ -78,5 +80,7 @@
             @yield('content')
         </main>
     </div>
+
+    <script type="text/javascript" src="/js/toastify.js"></script>
 </body>
 </html>
