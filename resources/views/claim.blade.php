@@ -87,6 +87,7 @@
                     document.location.reload();
                 },2000);
             }).catch((e)=>{
+                console.log(e);
                 alert('Something went wrong');
                 window.UnFreezeUI();
             });

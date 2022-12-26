@@ -144,7 +144,8 @@ class ClaimController extends Controller
 
             $logs['entries'][] = $entry;
 
-            $result->logs = $logs;
+            $result->logs   = $logs;
+            $result->status = 'CLMD'; 
 
             //Create Partner Log
             $partnerLog = new PartnerLog;
