@@ -56,15 +56,14 @@ class ClaimController extends Controller
 
     public function claim(Request $request){
 
-       // DB::transaction(function () use($request) {
-
             $uid        = $request->input('uid');
             $screen_h   = $request->input('screen_h');
             $screen_w   = $request->input('screen_w');
+            $d_uid      = $request->input('d_uid');
             
             $os         = $this->getUserOS();
             $browser    = $this->getUserBrowser();
-            
+            $ip         = $this->getIP();
 
             if($uid == ''){
                 return response()->json([
@@ -85,7 +84,7 @@ class ClaimController extends Controller
                     'data'=> []
                 ]);
             }
-    ;
+
 
             if($result->order->status != 'PAID'){
                 return response()->json([
@@ -110,12 +109,9 @@ class ClaimController extends Controller
             //Expiration
             if($expires_at->lte($now)){
                 return response()->json([
-                    'status' => 0,
-                    'message'=> 'Item has already expired',
-                    'data'=> [
-                        'expires_at' => $result->expires_at,
-                        'now' => $now->format('Y-m-d h:m:s')
-                    ]
+                    'status'    => 0,
+                    'message'   => 'Item has already expired',
+                    'data'      => []
                 ]);
             }
 
@@ -137,6 +133,12 @@ class ClaimController extends Controller
                 'value'         => $result->price,
                 'consumed'      => $result->consumed,
                 'quantity'      => $result->quantity,
+                'os'            => $os,
+                'browser'       => $browser,
+                'screen_width'  => $screen_w,
+                'screen_height' => $screen_h,
+                'device_uid'    => $d_uid,
+                'ip'            => $ip,
                 'date_time'     => $now->format('Y-m-d h:m:s')
             ];
 
@@ -153,17 +155,36 @@ class ClaimController extends Controller
             $partnerLog->entry          = json_encode($entry);
             $partnerLog->partner_id     = $partner_id;
 
+            
             //Save to database
-            $result->save();
-            $partnerLog->save();
+            DB::beginTransaction();
+            
+            try{
 
+                $result->save();
+                $partnerLog->save();
+
+                DB::commit();
+
+            }catch(Exception $e){
+
+                DB::rollback();
+
+                return response()->json([
+                    'status' => 0,
+                    'message'=> 'Unable to update records',
+                    'data'=> []
+                ]);
+
+            }
+                
             return response()->json([
                 'status' => 1,
                 'message'=> '',
                 'data'=> []
             ]);
 
-        //});
+       
     }
 
     private function getUserOS(){
@@ -223,5 +244,18 @@ class ClaimController extends Controller
         }
 
         return $browser;
+    }
+
+    private function getIP(){
+        foreach (array('HTTP_CLIENT_IP', 'HTTP_X_FORWARDED_FOR', 'HTTP_X_FORWARDED', 'HTTP_X_CLUSTER_CLIENT_IP', 'HTTP_FORWARDED_FOR', 'HTTP_FORWARDED', 'REMOTE_ADDR') as $key){
+            if (array_key_exists($key, $_SERVER) === true){
+                foreach (explode(',', $_SERVER[$key]) as $ip){
+                    $ip = trim($ip); // just to be safe
+                    if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) !== false){
+                        return $ip;
+                    }
+                }
+            }
+        }
     }
 }

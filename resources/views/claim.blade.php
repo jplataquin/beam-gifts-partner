@@ -46,7 +46,7 @@
         const claimBtn = $q('#claimBtn').first();
 
         claimBtn.onclick = (e)=>{
-
+            
             let answer = prompt('Type "Yes" if you are sure to release one quantity of these item');
 
             if(answer.trim() == ''){
@@ -64,24 +64,31 @@
             }
 
             //Do spinner loader
+            window.FreezeUI();
 
             window.util.$post('/claim',{
                 uid: "{{$uid}}",
                 screen_h: window.outerHeight,
-                screen_w: window.outerWidth
+                screen_w: window.outerWidth,
+                d_uid: window.util.getMachineId()
             }).then(reply=>{
 
-                
-                console.log(reply);
-                
+                window.UnFreezeUI();
+
                 if(reply.status <= 0){
+                    
                     alert(reply.message);
-                    alert(reply.data.expires_at);
-                    alert(reply.data.now);
                     return false;
                 }
 
-                console.log(reply.data);
+                window.util.toastCenter('Item claimed successfully');
+                
+                setTimeout(()=>{
+                    document.location.reload();
+                },2000);
+            }).catch((e)=>{
+                alert('Something went wrong');
+                window.UnFreezeUI();
             });
         }
 
