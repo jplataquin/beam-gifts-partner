@@ -66,7 +66,9 @@
             //Do spinner loader
 
             window.util.$post('/claim',{
-                uid: "{{$uid}}"
+                uid: "{{$uid}}",
+                screen_h: window.outerHeight,
+                screen_w: window.outerWidth
             }).then(reply=>{
 
                 
