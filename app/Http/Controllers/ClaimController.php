@@ -148,10 +148,10 @@ class ClaimController extends Controller
             //Create Partner Log
             $partnerLog = new PartnerLog;
 
-            $partnerLog->status         = 'CLAI';
+            $partnerLog->status         = 'CLMD';
             $partnerLog->order_item_id  = $result->id;
             $partnerLog->amount         = $result->price;
-            $partnerLog->entry          = $entry;
+            $partnerLog->entry          = json_encode($entry);
             $partnerLog->partner_id     = $partner_id;
 
             //Save to database
