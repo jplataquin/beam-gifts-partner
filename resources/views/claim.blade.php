@@ -76,6 +76,8 @@
                 
                 if(reply.status <= 0){
                     alert(reply.message);
+                    alert(reply.data.expires_at);
+                    alert(reply.data.now);
                     return false;
                 }
 

@@ -114,7 +114,8 @@ class ClaimController extends Controller
                     'status' => 0,
                     'message'=> 'Item has already expired',
                     'data'=> [
-                        'expires_at' => $result->expires_at
+                        'expires_at' => $result->expires_at,
+                        'now' => $now->format('Y-m-d h:m:s')
                     ]
                 ]);
             }
