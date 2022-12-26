@@ -56,7 +56,7 @@ class ClaimController extends Controller
 
     public function claim(Request $request){
 
-        DB::transaction(function (){
+        DB::transaction(function () use($request){
 
             $uid        = $request->input('uid');
             $screen_h   = $request->input('screen_h');
