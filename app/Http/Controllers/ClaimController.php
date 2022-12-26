@@ -145,7 +145,6 @@ class ClaimController extends Controller
 
             $result->logs = $logs;
 
-
             //Create Partner Log
             $partnerLog = new PartnerLog;
 
