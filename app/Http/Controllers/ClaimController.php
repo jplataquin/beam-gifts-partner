@@ -56,7 +56,7 @@ class ClaimController extends Controller
 
     public function claim(Request $request){
 
-        DB::transaction(function () use($request){
+       // DB::transaction(function () use($request) {
 
             $uid        = $request->input('uid');
             $screen_h   = $request->input('screen_h');
@@ -165,7 +165,7 @@ class ClaimController extends Controller
                 'data'=> []
             ]);
 
-        });
+        //});
     }
 
     private function getUserOS(){

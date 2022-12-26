@@ -84,7 +84,7 @@ window.util.$post = async (url,params,headers) => {
                     data:{}
             }
         };
-
+        
         return response.json();
     }).catch(e=>{
 
