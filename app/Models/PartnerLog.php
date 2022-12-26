@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class PartnerLog extends Model
 {
-    protected $table        = 'partner_log';
+    protected $table        = 'partner_logs';
     use HasFactory;
 }
