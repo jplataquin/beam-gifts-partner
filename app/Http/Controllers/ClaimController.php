@@ -105,7 +105,7 @@ class ClaimController extends Controller
             }
 
             
-            $expires_at = Carbon::createFromFormat('Y-m-d H:i:s', '1989-08-04 00:00:00');
+            $expires_at = Carbon::createFromFormat('Y-m-d H:i:s', $result->expires_at);
             $now        = Carbon::now();
 
             //Expiration
