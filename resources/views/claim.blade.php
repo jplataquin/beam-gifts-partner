@@ -72,7 +72,7 @@
             }).then(reply=>{
 
                 
-                console.log(reply.data);
+                console.log(reply);
                 
                 if(reply.status <= 0){
                     alert(reply.message);
