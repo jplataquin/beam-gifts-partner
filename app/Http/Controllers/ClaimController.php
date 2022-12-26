@@ -147,7 +147,7 @@ class ClaimController extends Controller
 
 
             //Create Partner Log
-            $partnerLog = new ParnterLog();
+            $partnerLog = new PartnerLog;
 
             $partnerLog->satus          = 'CLAI';
             $partnerLog->order_item_id  = $result->id;
