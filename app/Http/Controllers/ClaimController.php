@@ -44,7 +44,6 @@ class ClaimController extends Controller
             ]);
         }
 
-        
         $result->item->photo = json_decode($result->item->photo,true);
 
         return view('claim',[

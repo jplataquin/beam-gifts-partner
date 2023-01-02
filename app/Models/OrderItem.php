@@ -10,6 +10,7 @@ class OrderItem extends Model
 {
     protected $connection   = 'mysql_beam_client';
     protected $table        = 'order_items';
+    protected $dates        = ['expires_at'];
     use HasFactory;
 
     public function order()

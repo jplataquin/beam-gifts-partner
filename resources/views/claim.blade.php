@@ -19,7 +19,7 @@
                     <h5 class="card-title">{{$data->item_name}}</h5>
                     <p>By {{$data->brand_name}}</p>
                     <h3>PHP: {{ number_format($data->price,2) }}
-                    <h3>Expires at: {{$data->expires_at}}</h3>
+                    <h3>Expires at: {{ $data->expires_at->format('M d, Y h:i:s') }}</h3>
                     <h3>🎁: {{$data->consumed}} / {{$data->quantity}}
                     
                     <div class="row mt-5">
