@@ -20,7 +20,7 @@
                     <p>By {{$data->brand_name}}</p>
                     <h3>PHP: {{ number_format($data->price,2) }}
                     <h3>🎁: {{$data->consumed}} / {{$data->quantity}}
-
+                    <h3>Expiry: {{$data->expiry}}</h3>
                     <div class="row mt-5">
                         <div class="col-6">
                             <button class="btn btn-warning w-100" id="cancelBtn" >Cancel</button>

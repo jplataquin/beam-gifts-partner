@@ -37,7 +37,6 @@ class ClaimController extends Controller
                 'uid' => $uid
             ]);
         }
-;
 
         if($result->order->status != 'PAID'){
             return view('no_item',[
@@ -45,11 +44,12 @@ class ClaimController extends Controller
             ]);
         }
 
+        
         $result->item->photo = json_decode($result->item->photo,true);
 
         return view('claim',[
-            'uid'   => $uid,
-            'data'  => $result,
+            'uid'    => $uid,
+            'data'   => $result,
             'status' => $result->order->status
         ]);
     }
