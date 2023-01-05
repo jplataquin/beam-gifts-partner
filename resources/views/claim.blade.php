@@ -22,14 +22,20 @@
                     <h3>Expires at: {{ $data->expires_at->format('M d, Y - h:i:s') }}</h3>
                     <h3>🎁: {{$data->consumed}} / {{$data->quantity}}
                     
-                    <div class="row mt-5">
-                        <div class="col-6">
-                            <button class="btn btn-warning w-100" id="cancelBtn" >Cancel</button>
+                    @if($data->consumed >= $data->quantity)
+                        
+                        <h1>Consumed</h1>
+                    
+                    @else
+                        <div class="row mt-5">
+                            <div class="col-6">
+                                <button class="btn btn-warning w-100" id="cancelBtn" >Cancel</button>
+                            </div>
+                            <div class="col-6">
+                                <button class="btn btn-primary w-100" id="claimBtn" >Claim</button>
+                            </div>
                         </div>
-                        <div class="col-6">
-                            <button class="btn btn-primary w-100" id="claimBtn" >Claim</button>
-                        </div>
-                    </div>
+                    @endif
                 </div>
             </div>
         </div>
