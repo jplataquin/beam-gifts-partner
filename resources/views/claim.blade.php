@@ -23,7 +23,7 @@
                     <h3>🎁: {{$data->consumed}} / {{$data->quantity}}
                     
                     @if($data->consumed >= $data->quantity)
-                        <div class="text-center">
+                        <div class="text-center bg-info">
                             <h1>Already Consumed</h1>
                         </div>
                     
