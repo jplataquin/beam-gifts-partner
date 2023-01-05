@@ -4,8 +4,6 @@
 
 <div class="container">
 
-    <h1>{{$uid}}</h1>
-    
     <div class="row justify-content-center">
         <div class="col-md-9 ">
             <div class="card" width="100%">
@@ -24,7 +22,7 @@
                     
                     @if($data->consumed >= $data->quantity)
                         <div class="text-center bg-info mt-3">
-                            <h1>Already Consumed</h1>
+                            <h1>Fully Claimed</h1>
                         </div>
                     
                     @else
@@ -51,7 +49,8 @@
 
     (async ()=>{
 
-        const claimBtn = $q('#claimBtn').first();
+        const claimBtn  = $q('#claimBtn').first();
+        const cancelBtn = $q('#cancelBtn').first();
 
         claimBtn.onclick = (e)=>{
             
@@ -94,6 +93,7 @@
                 setTimeout(()=>{
                     document.location.reload();
                 },2000);
+
             }).catch((e)=>{
                 console.log(e);
                 alert('Something went wrong');
@@ -101,6 +101,9 @@
             });
         }
 
+        cancelBtn.onclick = (e)=>{
+            document.location.href = '/';
+        }
     })();
 </script>
 @endsection
