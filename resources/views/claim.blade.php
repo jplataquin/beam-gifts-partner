@@ -23,8 +23,9 @@
                     <h3>🎁: {{$data->consumed}} / {{$data->quantity}}
                     
                     @if($data->consumed >= $data->quantity)
-                        
-                        <h1>Consumed</h1>
+                        <div class="text-center">
+                            <h1>Already Consumed</h1>
+                        </div>
                     
                     @else
                         <div class="row mt-5">
