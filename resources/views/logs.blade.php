@@ -50,8 +50,8 @@
                         t.h3(row.item_name);
                     });
 
-                    console.log(div);
-                    list.appendChild(div);
+                    console.log(div,'here');
+                   
                 });
 
                 page++;
