@@ -43,7 +43,7 @@
                 }
 
                 
-
+                console.log(list,'asdasd');
                 reply.data.items.map(row => {
                     
                     let div = t.div(()=>{
