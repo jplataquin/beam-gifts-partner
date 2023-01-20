@@ -25,7 +25,7 @@
             
             window.FreezeUI();
 
-            window.util.$get('/api/log/list',params).then(reply=>{
+            window.util.$get('/api/log/list',{}).then(reply=>{
 
                 window.UnFreezeUI();
 
