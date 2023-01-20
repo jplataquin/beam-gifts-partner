@@ -6,7 +6,7 @@
     <h1>Logs</h1>
     <hr>
 
-    <div class="list"></div>
+    <div id="list"></div>
     <div class="text-center">
         <button id="showMoreBtn" class="btn btn-primary btn-block">Show More</button>
     </div>
@@ -43,14 +43,13 @@
                 }
 
                 
-                console.log(list,'asdasd');
                 reply.data.items.map(row => {
                     
                     let div = t.div(()=>{
-                        t.h3('asdasd');
+                        t.h3(row.entry.item_name);
                     });
 
-                    console.log(div,'here',row.entry.item_name);
+                   list.append(div);
                    
                 });
 
