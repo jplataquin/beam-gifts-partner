@@ -16,6 +16,7 @@
     import {Template,$q} from '/adarna.js';
 
     const showMoreBtn   = $q('#showMoreBtn').first();
+    const list          = $q('#list').first();
     const t             = new Template();
     //(async () => {
 
@@ -38,10 +39,22 @@
                 
                 if(!reply.data.items.length){
                     showMoreBtn.style.display = 'none';
+                    return false;
                 }
 
-                page++;
                 
+
+                reply.data.items.map(row => {
+                    
+                    let div = t.div(()=>{
+                        t.h3(row.item_name);
+                    });
+
+                    list.append(div);
+                });
+
+                page++;
+
                 console.log(reply.data);
 
 
