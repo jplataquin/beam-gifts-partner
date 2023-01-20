@@ -37,6 +37,11 @@ class LogsController extends Controller
 
         $result = $logs->get();
 
+        for($i = 0; $i <= count($result) - 1; $i++){
+            $result[$i]->entry      = json_decode($result[$i]->entry);
+        }
+        
+
         return response()->json([
             'status'    => 1,
             'message'   =>'',

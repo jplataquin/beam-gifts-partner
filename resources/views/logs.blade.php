@@ -19,13 +19,15 @@
     const t             = new Template();
     //(async () => {
 
-        let page = 1;
+        let page = 0;
 
         function getList(){
             
             window.FreezeUI();
 
-            window.util.$get('/api/log/list',{}).then(reply=>{
+            window.util.$get('/api/log/list',{
+                page: page
+            }).then(reply=>{
 
                 window.UnFreezeUI();
 
@@ -38,6 +40,8 @@
                     showMoreBtn.style.display = 'none';
                 }
 
+                page++;
+                
                 console.log(reply.data);
 
 
