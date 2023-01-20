@@ -47,10 +47,10 @@
                 reply.data.items.map(row => {
                     
                     let div = t.div(()=>{
-                        t.h3(row.entry.item_name);
+                        t.h3('asdasd');
                     });
 
-                    console.log(div,'here');
+                    console.log(div,'here',row.entry.item_name);
                    
                 });
 
