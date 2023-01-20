@@ -47,7 +47,7 @@
                 reply.data.items.map(row => {
                     
                     let div = t.div(()=>{
-                        t.h3(row.item_name);
+                        t.h3(row.entry.item_name);
                     });
 
                     console.log(div,'here');
