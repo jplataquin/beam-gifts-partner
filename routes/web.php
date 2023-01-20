@@ -21,6 +21,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/scan', [App\Http\Controllers\HomeController::class, 'scan'])->name('scan');
     Route::get('/claim/{uid}', [App\Http\Controllers\ClaimController::class, 'index']);
     Route::post('/claim', [App\Http\Controllers\ClaimController::class, 'claim']);
+
+    Route::get('/logs',[App\Http\Controllers\LogsController::class,'index']);
    
 });
 
