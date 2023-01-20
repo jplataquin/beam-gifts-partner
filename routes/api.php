@@ -25,6 +25,6 @@ Route::middleware([
 ])->group(function () {
 
 
-    Route::get('/log/list',[App\Http\Controllers\LogController::class, 'list']);
+    Route::get('/log/list',[App\Http\Controllers\LogsController::class, 'list']);
 
 });
