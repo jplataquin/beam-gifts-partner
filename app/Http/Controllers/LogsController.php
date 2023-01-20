@@ -40,7 +40,9 @@ class LogsController extends Controller
         return response()->json([
             'status'    => 1,
             'message'   =>'',
-            'data'      =>  $result 
+            'data'      =>  [
+                'items' => $result 
+            ]
         ]);
     }
 }
