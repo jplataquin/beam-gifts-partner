@@ -64,6 +64,7 @@
                         });
                     });
 
+                    console.log(div);
                    $el.append(div).to(list);
                    
                 });
