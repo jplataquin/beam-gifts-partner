@@ -141,16 +141,10 @@
         
         idFilter.onkeyup = (e)=>{
 
-            setTimeout(()=>{
-
-                if(!queryFlag){
-                    clearList();
-                    getList();
-                }else{
-                    console.log('FAILED');
-                }
-
-            },1000);
+            if(!queryFlag){
+                clearList();
+                getList();
+            }
           
         }
 
