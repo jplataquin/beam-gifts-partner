@@ -5,6 +5,16 @@
 <div class="container">
     <h1>Logs</h1>
     <hr>
+    <div class="row mb-3">
+        <div class="col-md-6 form-group">
+            <label>ID</label>
+            <input class="form-control" id="idField"/>
+        </div>
+        <div class="col-md-6 form-group">
+            <label>Status</label>
+            <input class="form-control" id="statusField"/>
+        </div>
+    </div>
 
     <div id="list" class="mb-5"></div>
     <div class="text-center">
