@@ -141,11 +141,11 @@
         
         idFilter.onkeyup = (e)=>{
 
-            if(!queryFlag){
+            if(e.charCode == 13){
                 clearList();
                 getList();
             }
-          
+             
         }
 
         getList();
