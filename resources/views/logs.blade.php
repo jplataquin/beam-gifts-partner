@@ -50,7 +50,7 @@
                         t.div({class:'card-body'},()=>{
                             t.h5({class:'card-title'},row.entry.item_name);
                             t.p({class:'card-text'},()=>{
-                                t.txt(util.numFormat.money('PHP',amount));
+                                t.txt(util.numFormat.money('PHP',row.amount));
                             });
                         });
                     });
