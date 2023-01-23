@@ -48,7 +48,7 @@ class LogsController extends Controller
         }
 
         if($to){
-            $logs = $logs->where('created_at','<=', date('Y-m-d h:i:s', strtotime($to)) );
+            $logs = $logs->where('created_at','<=', date('Y-m-d 23:59:59', strtotime($to)) );
         }
         
 
