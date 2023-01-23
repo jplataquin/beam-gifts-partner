@@ -23,9 +23,9 @@
         let page = 0;
 
         const statusOpt = {
-            'CLMD':'Customer Claimed',
-            'PAID':'Paid to Partner'
-        }
+            CLMD:'Customer Claimed',
+            PAID:'Paid to Partner'
+        };
 
         function getList(){
             
