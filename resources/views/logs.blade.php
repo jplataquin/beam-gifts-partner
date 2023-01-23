@@ -33,7 +33,8 @@
             window.FreezeUI();
 
             window.util.$get('/api/log/list',{
-                page: page
+                page: page,
+                limit: 10
             }).then(reply=>{
 
                 window.UnFreezeUI();
@@ -53,17 +54,34 @@
                     
                     let div = t.div({class:'card mb-3'},()=>{
                         let id = ''+row.id;
-                        
+
                         t.div({class:'card-header'},id.padStart(4,0));
                         
                         t.div({class:'card-body'},()=>{
                             t.h5({class:'card-title'},row.entry.item_name);
                             t.p({class:'card-text'},()=>{
-                                t.txt(util.numFormat.money('PHP',row.amount));
-                                t.br();
-                                t.txt('Status: '+statusOpt[row.status]);
-                                t.br();
-                                t.txt(row.created_at);
+
+                                t.div({class:'row'},()=>{
+                                    t.div({class:'col-md-6'},()=>{
+
+                                        t.txt(util.numFormat.money('PHP',row.amount));
+                                        t.br();
+                                        t.txt('Status: '+statusOpt[row.status]);
+                                        t.br();
+                                        t.txt(row.created_at);
+                                    });
+                                    t.div({class:'col-md-6'},()=>{
+
+                                        t.txt('IP: '+row.entry.ip);
+                                        t.br();
+                                        t.txt('OS: '+row.entry.os);
+                                        t.br();
+                                        t.txt('Browser: '+row.entry.browser);
+                                    });
+
+                                });
+
+                               
                             });
                         });
                     });
