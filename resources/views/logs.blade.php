@@ -8,7 +8,7 @@
     <div class="row mb-3">
         <div class="col-md-6 form-group">
             <label>ID</label>
-            <input class="form-control" id="idFilter"/>
+            <input class="form-control" type="number" id="idFilter"/>
         </div>
         <div class="col-md-6 form-group">
             <label>Status</label>
@@ -17,6 +17,16 @@
                 <option value="CLMD">Claimed by Customer</option>
                 <option value="RELP">Released to Parnter</option>
             </select>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-6 form-group">
+            <label>From</label>
+            <input type="date" class="form-control" id="fromFilter"/>
+        </div>
+        <div class="col-md-6 form-group">
+            <label>To</label>
+            <input type="date" class="form-control" id="toFilter"/>
         </div>
     </div>
 
@@ -33,6 +43,8 @@
     const list          = $q('#list').first();
     const statusFilter  = $q('#statusFilter').first();
     const idFIlter      = $q('#idFilter').first();
+    const fromFilter    = $q('#fromFilter').first();
+    const toFilter      = $q('#toFilter').first();
 
     const t             = new Template();
 
@@ -63,7 +75,9 @@
                 page: page,
                 limit: 10,
                 status: statusFilter.value,
-                id: idFilter.value
+                id: idFilter.value,
+                from: fromFilter.value,
+                to: toFilter.value
             }).then(reply=>{
 
                 window.UnFreezeUI();
@@ -149,6 +163,18 @@
              
         }
 
+        fromFilter.onchange = (e)=>{
+            clearList();
+            getList();
+            fromFilter.blur();
+        }
+
+        toFilter.onchange = (e)=>{
+            clearList();
+            getList();
+            toFilter.blur();
+        }
+        
         getList();
 
    // })();

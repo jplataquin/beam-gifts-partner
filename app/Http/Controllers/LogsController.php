@@ -21,6 +21,8 @@ class LogsController extends Controller
         $id         = (int) $request->input('id') ?? '';
         $order      = $request->input('order') ?? 'DESC';
         $status     = $request->input('status') ?? '';
+        $from       = $request->input('from') ?? '';
+        $to         = $request->input('to') ?? '';
         
 
         if($limit > 0){
@@ -40,6 +42,15 @@ class LogsController extends Controller
         if($id){
             $logs = $logs->where('id',$id);
         }
+
+        if($from){
+            $logs = $logs->where('created_at','>=',date('Y-m-d h:i:s', strtotime($from)) );
+        }
+
+        if($to){
+            $logs = $logs->where('created_at','<=', date('Y-m-d h:i:s', strtotime($to)) );
+        }
+        
 
         if($limit > 0){
             $page   = $page * $limit;
