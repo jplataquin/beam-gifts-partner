@@ -18,6 +18,7 @@
     const showMoreBtn   = $q('#showMoreBtn').first();
     const list          = $q('#list').first();
     const t             = new Template();
+
     //(async () => {
 
         let page = 0;
@@ -65,8 +66,8 @@
                         });*/
                     });
 
-                    console.log(div);
-                   $el.append(div).to(list);
+                    console.log(div,list);
+                   //$el.append(div).to(list);
                    
                 });
 
