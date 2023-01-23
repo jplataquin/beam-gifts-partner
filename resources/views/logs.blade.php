@@ -8,11 +8,15 @@
     <div class="row mb-3">
         <div class="col-md-6 form-group">
             <label>ID</label>
-            <input class="form-control" id="idField"/>
+            <input class="form-control" id="idFilter"/>
         </div>
         <div class="col-md-6 form-group">
             <label>Status</label>
-            <input class="form-control" id="statusField"/>
+            <select class="form-control" id="statusFilter">
+                <option value=""> - </option>
+                <option value="CLMD">Claimed by Customer</option>
+                <option value="RELP">Released to Parnter</option>
+            </select>
         </div>
     </div>
 
@@ -27,6 +31,9 @@
 
     const showMoreBtn   = $q('#showMoreBtn').first();
     const list          = $q('#list').first();
+    const statusFilter  = $q('#statusFilter').first();
+    const idFIlter      = $q('#idFilter').first();
+
     const t             = new Template();
 
     //(async () => {
@@ -35,8 +42,13 @@
 
         const statusOpt = {
             CLMD:'Customer Claimed',
-            PAID:'Paid to Partner'
+            RELP:'Released to Partner'
         };
+
+        function clearList(){
+            list.innerHTML = '';
+            page = 0;
+        }
 
         function getList(){
             
@@ -44,7 +56,9 @@
 
             window.util.$get('/api/log/list',{
                 page: page,
-                limit: 10
+                limit: 10,
+                status: statusFilter.value,
+                id: idFilter.value
             }).then(reply=>{
 
                 window.UnFreezeUI();
@@ -84,9 +98,9 @@
 
                                         t.txt('IP: '+row.entry.ip);
                                         t.br();
-                                        t.txt('OS: '+row.entry.os);
+                                        t.txt('OS/Browser: '+row.entry.os+' / '+row.entry.browser);
                                         t.br();
-                                        t.txt('Browser: '+row.entry.browser);
+                                        t.txt('Released at: '+row.realsed_at);
                                     });
 
                                 });
@@ -114,6 +128,16 @@
             getList();
         }
         
+
+        statusFilter.onchange = (e)=>{
+            clearList();
+            getList();    
+        }
+
+        idFilter.onkeyup = (e)=>{
+            clearList();
+            getList();
+        }
 
         getList();
 
