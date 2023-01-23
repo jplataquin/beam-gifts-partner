@@ -53,14 +53,15 @@
                     
                     let div = t.div({class:'card mb-3'},()=>{
 
-                        t.div({class:'card-header'},' ');
+                        t.div({class:'card-header'},row.id+''.padStart(4,0));
                         
                         t.div({class:'card-body'},()=>{
                             t.h5({class:'card-title'},row.entry.item_name);
                             t.p({class:'card-text'},()=>{
                                 t.txt(util.numFormat.money('PHP',row.amount));
                                 t.br();
-                                t.txt(statusOpt[row.status]);
+                                t.txt('Status: '+statusOpt[row.status]);
+                                t.br();
                                 t.txt(row.created_at);
                             });
                         });
