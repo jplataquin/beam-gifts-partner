@@ -6,7 +6,7 @@
     <h1>Logs</h1>
     <hr>
 
-    <div id="list mb-5"></div>
+    <div id="list" class="mb-5"></div>
     <div class="text-center">
         <button id="showMoreBtn" class="btn btn-primary btn-block w-100">Show More</button>
     </div>
@@ -23,11 +23,10 @@
 
         let page = 0;
 
-        /**
         const statusOpt = {
             CLMD:'Customer Claimed',
             PAID:'Paid to Partner'
-        };**/
+        };
 
         function getList(){
             
@@ -54,20 +53,18 @@
                     
                     let div = t.div({class:'card mb-3'},()=>{
 
-                        //t.div({class:'card-header'},'&nbsp');
+                        t.div({class:'card-header'},'&nbsp');
                         
-                        /*
                         t.div({class:'card-body'},()=>{
                             t.h5({class:'card-title'},row.entry.item_name);
                             t.p({class:'card-text'},()=>{
                                 t.txt(util.numFormat.money('PHP',row.amount));
-                               // t.txt(statusOpt[row.status]);
+                                t.txt(statusOpt[row.status]);
                             });
-                        });*/
+                        });
                     });
 
-                    console.log(div,list);
-                   //$el.append(div).to(list);
+                    $el.append(div).to(list);
                    
                 });
 
