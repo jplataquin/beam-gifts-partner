@@ -70,6 +70,7 @@
 
                 if(!reply.status){
                     alert(reply.message);
+                    clearList();
                     return false;
                 }
                 
@@ -121,8 +122,6 @@
 
                 page++;
 
-                console.log(reply.data);
-
 
             });
         }
@@ -147,6 +146,8 @@
                 if(!queryFlag){
                     clearList();
                     getList();
+                }else{
+                    console.log('FAILED');
                 }
 
             },1000);
