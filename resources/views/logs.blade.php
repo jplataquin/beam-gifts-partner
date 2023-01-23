@@ -52,8 +52,9 @@
                 reply.data.items.map(row => {
                     
                     let div = t.div({class:'card mb-3'},()=>{
-
-                        t.div({class:'card-header'},row.id+''.padStart(4,0));
+                        let id = ''+row.id;
+                        
+                        t.div({class:'card-header'},id.padStart(4,0));
                         
                         t.div({class:'card-body'},()=>{
                             t.h5({class:'card-title'},row.entry.item_name);
