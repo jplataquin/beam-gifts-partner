@@ -13,7 +13,7 @@
 </div>
 
 <script type="module">
-    import {Template,$q,util} from '/adarna.js';
+    import {Template,$q,util,$el} from '/adarna.js';
 
     const showMoreBtn   = $q('#showMoreBtn').first();
     const list          = $q('#list').first();
@@ -64,7 +64,7 @@
                         });
                     });
 
-                   list.append(div);
+                   $el.append(div).to(list);
                    
                 });
 
