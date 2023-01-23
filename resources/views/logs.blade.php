@@ -6,14 +6,14 @@
     <h1>Logs</h1>
     <hr>
 
-    <div id="list"></div>
+    <div id="list mb-5"></div>
     <div class="text-center">
-        <button id="showMoreBtn" class="btn btn-primary btn-block">Show More</button>
+        <button id="showMoreBtn" class="btn btn-primary btn-block w-100">Show More</button>
     </div>
 </div>
 
 <script type="module">
-    import {Template,$q} from '/adarna.js';
+    import {Template,$q,util} from '/adarna.js';
 
     const showMoreBtn   = $q('#showMoreBtn').first();
     const list          = $q('#list').first();
@@ -45,8 +45,14 @@
                 
                 reply.data.items.map(row => {
                     
-                    let div = t.div(()=>{
-                        t.h3(row.entry.item_name);
+                    let div = t.div({class:'card mb-3'},()=>{
+                        t.div({class:'card-header'},'&nbsp');
+                        t.div({class:'card-body'},()=>{
+                            t.h5({class:'card-title'},row.entry.item_name);
+                            t.p({class:'card-text'},()=>{
+                                t.txt(util.numFormat.money('PHP',amount));
+                            });
+                        });
                     });
 
                    list.append(div);
