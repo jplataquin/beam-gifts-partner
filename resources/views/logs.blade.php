@@ -22,6 +22,11 @@
 
         let page = 0;
 
+        const statusOpt = {
+            'CLMD':'Customer Claimed',
+            'PAID':'Paid to Partner'
+        }
+
         function getList(){
             
             window.FreezeUI();
@@ -51,6 +56,7 @@
                             t.h5({class:'card-title'},row.entry.item_name);
                             t.p({class:'card-text'},()=>{
                                 t.txt(util.numFormat.money('PHP',row.amount));
+                                t.txt(statusOpt[row.status]);
                             });
                         });
                     });
