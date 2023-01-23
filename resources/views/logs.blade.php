@@ -36,6 +36,8 @@
 
     const t             = new Template();
 
+    let queryFlag = false;
+
     //(async () => {
 
         let page = 0;
@@ -54,6 +56,8 @@
         function getList(){
             
             window.FreezeUI();
+
+            queryFlag = true;
 
             window.util.$get('/api/log/list',{
                 page: page,
@@ -112,7 +116,7 @@
                     });
 
                     $el.append(div).to(list);
-                   
+                    queryFlag = false;
                 });
 
                 page++;
@@ -135,9 +139,18 @@
             getList();    
         }
 
+        
         idFilter.onkeyup = (e)=>{
-            clearList();
-            getList();
+
+            setTimeout(()=>{
+
+                if(!queryFlag){
+                    clearList();
+                    getList();
+                }
+
+            },1000);
+          
         }
 
         getList();
