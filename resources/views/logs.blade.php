@@ -48,6 +48,7 @@
         function clearList(){
             list.innerHTML = '';
             page = 0;
+            showMoreBtn.style.display = 'block';
         }
 
         function getList(){
