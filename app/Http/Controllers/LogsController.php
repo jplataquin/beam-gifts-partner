@@ -28,6 +28,8 @@ class LogsController extends Controller
 
         $result = [];
 
+        $logs = $logs->where('partner_id',$user_id);
+        
         if($limit > 0){
             $page   = $page * $limit;
             $result = $logs->skip($page)->take($limit)->orderBy('created_at', $order)->get();
