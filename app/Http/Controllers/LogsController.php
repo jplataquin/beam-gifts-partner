@@ -18,7 +18,10 @@ class LogsController extends Controller
 
         $limit      = (int) $request->input('limit') ?? 0;
         $page       = (int) $request->input('page') ?? 0;
+        $id         = (int) $request->input('id') ?? '';
         $order      = $request->input('order') ?? 'DESC';
+        $status     = $request->input('status') ?? '';
+        
 
         if($limit > 0){
             $page   = $page * $limit;
@@ -29,7 +32,15 @@ class LogsController extends Controller
         $result = [];
 
         $logs = $logs->where('partner_id',$user_id);
-        
+
+        if($status){
+            $logs = $logs->where('status',$status);
+        }
+
+        if($id){
+            $logs = $logs->where('id',$id);
+        }
+
         if($limit > 0){
             $page   = $page * $limit;
             $result = $logs->skip($page)->take($limit)->orderBy('created_at', $order)->get();
