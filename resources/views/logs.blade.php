@@ -144,6 +144,7 @@
             if(e.keyCode == 13){
                 clearList();
                 getList();
+                idFilter.blur();
             }
              
         }
