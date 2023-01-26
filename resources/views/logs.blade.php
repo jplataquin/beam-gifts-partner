@@ -83,6 +83,8 @@
 
                 window.UnFreezeUI();
 
+                console.log(reply.data.totalAmount);
+                
                 if(!reply.status){
                     alert(reply.message);
                     clearList();
@@ -94,7 +96,7 @@
                     return false;
                 }
 
-                console.log(reply.data.totalAmount);
+             
                 
                 reply.data.items.map(row => {
                     
