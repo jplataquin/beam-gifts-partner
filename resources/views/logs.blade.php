@@ -132,7 +132,9 @@
                                         t.txt('OS/Browser: '+row.entry.os+' / '+row.entry.browser);
                                         t.br();
                                         
-                                        t.txt('Released at: '+row.released_at);
+                                        let released_at = row.released_at ? row.released_at : '';
+
+                                        t.txt('Released at: '+released_at);
                                     });
 
                                 });
