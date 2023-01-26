@@ -69,7 +69,7 @@ class LogsController extends Controller
         
 
         $totalAmount = 0;
-        
+
         if($totalFlag){
             
 
@@ -102,7 +102,7 @@ class LogsController extends Controller
             'message'   =>'',
             'data'      =>  [
                 'items' => $result,
-                'totalAmount' => $totalAmount
+                'totalAmount' => (float) $totalAmount
             ]
         ]);
     }
