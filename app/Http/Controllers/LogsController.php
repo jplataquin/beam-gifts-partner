@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\PartnerLog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class LogsController extends Controller
 {
@@ -23,6 +24,7 @@ class LogsController extends Controller
         $status     = $request->input('status') ?? '';
         $from       = $request->input('from') ?? '';
         $to         = $request->input('to') ?? '';
+        $totalFlag  = $request->input('totalFlag') ?? false;
         
 
         if($limit > 0){
@@ -65,12 +67,39 @@ class LogsController extends Controller
             $result[$i]->entry      = json_decode($result[$i]->entry);
         }
         
+        if($totalFlag){
+            
+
+            $total = DB::table('partner_logs')
+            ->select('SUM(amount) as total')
+            ->where('partner_id',$user_id);
+      
+
+            if($status){
+                $total = $total->where('status',$status);
+            }
+    
+            if($id){
+                $total = $total->where('id',$id);
+            }
+    
+            if($from){
+                $total = $total->where('created_at','>=',date('Y-m-d h:i:s', strtotime($from)) );
+            }
+    
+            if($to){
+                $total = $total->where('created_at','<=', date('Y-m-d 23:59:59', strtotime($to)) );
+            }
+
+            $totalAmount = $total->get()->total;
+        }
 
         return response()->json([
             'status'    => 1,
             'message'   =>'',
             'data'      =>  [
-                'items' => $result 
+                'items' => $result,
+                'totalAmount' => $totalAmount
             ]
         ]);
     }

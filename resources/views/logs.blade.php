@@ -65,7 +65,7 @@
             showMoreBtn.style.display = 'block';
         }
 
-        function getList(){
+        function getList(flag){
             
             window.FreezeUI();
 
@@ -77,7 +77,8 @@
                 status: statusFilter.value,
                 id: idFilter.value,
                 from: fromFilter.value,
-                to: toFilter.value
+                to: toFilter.value,
+                totalFlag: flag
             }).then(reply=>{
 
                 window.UnFreezeUI();
@@ -92,7 +93,7 @@
                     showMoreBtn.style.display = 'none';
                     return false;
                 }
-
+                console.log(reply);
                 
                 reply.data.items.map(row => {
                     
@@ -143,13 +144,13 @@
 
         showMoreBtn.onclick = (e)=>{
             
-            getList();
+            getList(false);
         }
         
 
         statusFilter.onchange = (e)=>{
             clearList();
-            getList();    
+            getList(true);    
         }
 
         
@@ -157,7 +158,7 @@
 
             if(e.keyCode == 13){
                 clearList();
-                getList();
+                getList(true);
                 idFilter.blur();
             }
              
@@ -165,17 +166,17 @@
 
         fromFilter.onchange = (e)=>{
             clearList();
-            getList();
+            getList(true);
             fromFilter.blur();
         }
 
         toFilter.onchange = (e)=>{
             clearList();
-            getList();
+            getList(true);
             toFilter.blur();
         }
-        
-        getList();
+
+        getList(true);
 
    // })();
 </script>
