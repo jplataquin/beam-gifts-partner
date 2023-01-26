@@ -89,7 +89,7 @@
                 window.UnFreezeUI();
 
                 if(flag){
-                    totalAmountField.value = util.numFormat.money('PHP',reply.data.totalAmount);
+                    totalAmountField.value = util.numFormat.money('PHP',parseFloat(reply.data.totalAmount));
                 }
 
                 if(!reply.status){
