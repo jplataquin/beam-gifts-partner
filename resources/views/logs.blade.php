@@ -93,8 +93,8 @@
                     showMoreBtn.style.display = 'none';
                     return false;
                 }
-                
-                console.log(reply);
+
+                console.log(reply.data.totalAmount);
                 
                 reply.data.items.map(row => {
                     

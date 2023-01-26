@@ -67,6 +67,9 @@ class LogsController extends Controller
             $result[$i]->entry      = json_decode($result[$i]->entry);
         }
         
+
+        $totalAmount = 0;
+        
         if($totalFlag){
             
 
