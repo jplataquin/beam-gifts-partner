@@ -91,7 +91,7 @@ class LogsController extends Controller
                 $total = $total->where('created_at','<=', date('Y-m-d 23:59:59', strtotime($to)) );
             }
 
-            $totalAmount = $total->row()->total;
+            $totalAmount = $total->first()->total;
         }
 
         return response()->json([
