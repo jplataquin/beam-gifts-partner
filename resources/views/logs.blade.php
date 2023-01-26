@@ -6,11 +6,15 @@
     <h1>Logs</h1>
     <hr>
     <div class="row mb-3">
-        <div class="col-md-6 form-group">
+        <div class="col-md-4 form-group">
+            <label>Total Amount</label>
+            <input type="text" class="form-control" id="totalAmountField"/>
+        </div>
+        <div class="col-md-4 form-group">
             <label>ID</label>
             <input class="form-control" type="number" id="idFilter"/>
         </div>
-        <div class="col-md-6 form-group">
+        <div class="col-md-4 form-group">
             <label>Status</label>
             <select class="form-control" id="statusFilter">
                 <option value=""> - </option>
@@ -39,12 +43,13 @@
 <script type="module">
     import {Template,$q,util,$el} from '/adarna.js';
 
-    const showMoreBtn   = $q('#showMoreBtn').first();
-    const list          = $q('#list').first();
-    const statusFilter  = $q('#statusFilter').first();
-    const idFIlter      = $q('#idFilter').first();
-    const fromFilter    = $q('#fromFilter').first();
-    const toFilter      = $q('#toFilter').first();
+    const showMoreBtn       = $q('#showMoreBtn').first();
+    const list              = $q('#list').first();
+    const statusFilter      = $q('#statusFilter').first();
+    const idFIlter          = $q('#idFilter').first();
+    const fromFilter        = $q('#fromFilter').first();
+    const toFilter          = $q('#toFilter').first();
+    const totalAmountField  = $q('#totalAmountField').first();
 
     const t             = new Template();
 
@@ -83,7 +88,9 @@
 
                 window.UnFreezeUI();
 
-                console.log(reply.data.totalAmount);
+                if(flag){
+                    totalAmountField.value = util.numFormat.money('PHP',reply.data.totalAmount);
+                }
 
                 if(!reply.status){
                     alert(reply.message);
