@@ -78,13 +78,13 @@
                 id: idFilter.value,
                 from: fromFilter.value,
                 to: toFilter.value,
-                totalFlag: flag
+                totalFlag: parseInt(flag)
             }).then(reply=>{
 
                 window.UnFreezeUI();
 
                 console.log(reply.data.totalAmount);
-                
+
                 if(!reply.status){
                     alert(reply.message);
                     clearList();
