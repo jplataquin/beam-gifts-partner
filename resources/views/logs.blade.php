@@ -8,7 +8,7 @@
     <div class="row mb-3">
         <div class="col-md-4 form-group">
             <label>Total Amount</label>
-            <input type="text" class="form-control" id="totalAmountField"/>
+            <input type="text" class="form-control" readonly="true" id="totalAmountField"/>
         </div>
         <div class="col-md-4 form-group">
             <label>ID</label>
