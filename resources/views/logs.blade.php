@@ -15,7 +15,7 @@
             <select class="form-control" id="statusFilter">
                 <option value=""> - </option>
                 <option value="CLMD">Claimed by Customer</option>
-                <option value="RELP">Released to Parnter</option>
+                <option value="RELP">Released to Partner</option>
             </select>
         </div>
     </div>
