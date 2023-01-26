@@ -131,7 +131,8 @@
                                         t.br();
                                         t.txt('OS/Browser: '+row.entry.os+' / '+row.entry.browser);
                                         t.br();
-                                        t.txt('Released at: '+row.realsed_at);
+                                        
+                                        t.txt('Released at: '+row.released_at);
                                     });
 
                                 });
