@@ -147,13 +147,13 @@
 
         showMoreBtn.onclick = (e)=>{
             
-            getList(false);
+            getList(0);
         }
         
 
         statusFilter.onchange = (e)=>{
             clearList();
-            getList(true);    
+            getList(1);    
         }
 
         
@@ -161,7 +161,7 @@
 
             if(e.keyCode == 13){
                 clearList();
-                getList(true);
+                getList(1);
                 idFilter.blur();
             }
              
@@ -169,17 +169,17 @@
 
         fromFilter.onchange = (e)=>{
             clearList();
-            getList(true);
+            getList(1);
             fromFilter.blur();
         }
 
         toFilter.onchange = (e)=>{
             clearList();
-            getList(true);
+            getList(1);
             toFilter.blur();
         }
 
-        getList(true);
+        getList(1);
 
    // })();
 </script>
