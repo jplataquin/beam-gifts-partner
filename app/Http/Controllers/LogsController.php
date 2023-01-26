@@ -71,7 +71,7 @@ class LogsController extends Controller
             
 
             $total = DB::table('partner_logs')
-            ->select('SUM(amount) as total')
+            ->select(DB::raw('SUM(amount) as total'))
             ->where('partner_id',$user_id);
       
 
@@ -91,7 +91,7 @@ class LogsController extends Controller
                 $total = $total->where('created_at','<=', date('Y-m-d 23:59:59', strtotime($to)) );
             }
 
-            $totalAmount = $total->get()->total;
+            $totalAmount = $total->row()->total;
         }
 
         return response()->json([

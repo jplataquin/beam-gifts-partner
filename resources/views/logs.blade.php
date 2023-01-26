@@ -93,6 +93,7 @@
                     showMoreBtn.style.display = 'none';
                     return false;
                 }
+                
                 console.log(reply);
                 
                 reply.data.items.map(row => {
